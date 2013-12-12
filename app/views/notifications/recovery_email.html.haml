@@ -1,0 +1,9 @@
+!!! 5
+%html(lang="en-US")
+  %head
+    %title Session Based
+  %body
+    %p
+      #{@user.full_name}, you asked to reset your password.
+    %p
+      Please click on the following <a href="#{url_for(:controller => 'password_recoveries', :action => 'edit', :id => @password_recovery.id, :token => @password_recovery.token, :only_path => false)}">link</a> to reset your password.

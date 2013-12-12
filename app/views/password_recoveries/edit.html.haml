@@ -1,0 +1,14 @@
+%section.reset_password.container
+  .row
+    .col-md-4.col-md-offset-1
+      %h1 Reset Your Password
+      = form_for @password_recovery do |f|
+        = hidden_field_tag :token, @password_recovery.token
+        .form-group
+          %label New Password
+          = password_field_tag :password, '', :class => 'form-control'
+        .form-group
+          %label New Password Confirmation
+          = password_field_tag :password_confirmation, '', :class => 'form-control'
+        %fieldset.action
+          %input(type="submit" value="Reset Password" class="btn btn-default")

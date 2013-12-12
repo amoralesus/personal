@@ -1,0 +1,12 @@
+%section.forgot_password.container
+  .row
+    .col-md-10.col-md-offset-1
+      %h1 Forgot Password?
+      %p We will send you an email with a link that you can use to reset your password.
+      =form_for @password_recovery do |f|
+        .row.form-group.col-md-5
+          %label Email Address
+          = text_field_tag 'email','', :class => 'form-control'
+        .row.form-group.col-md-10
+          %input(type="submit" value="Send Email" class="btn btn-default")
+
