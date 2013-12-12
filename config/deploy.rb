@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 set :application, "web"
-set :repository,  "git@github.com:cobroventures/personal.git"
+set :repository,  "git@github.com:amoralesus/personal.git"
 set :deploy_to, "/u/apps/personal"
 
 set :scm, :git
