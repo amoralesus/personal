@@ -26,8 +26,7 @@ module Personal
     # config.i18n.default_locale = :de
     config.secret_key_base = ENV['CONFIG_SECRET_KEY_BASE']
     config.salt  = ENV['CONFIG_SALT']
-    config.key   = ActiveSupport::KeyGenerator.new(ENV['CONFIG_KEY']).generate_key(config.salt)
-    config.encryptor = ActiveSupport::MessageEncryptor.new(config.key)
+    config.key   = ENV['CONFIG_KEY']
 
     config.generators do |g|
       g.orm             :active_record

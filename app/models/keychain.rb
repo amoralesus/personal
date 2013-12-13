@@ -3,6 +3,14 @@ class Keychain < ActiveRecord::Base
 
   validates :name, :presence => true, :uniqueness => true
 
+  def self.key
+    ActiveSupport::KeyGenerator.new(Rails.configuration.key).generate_key(Rails.configuration.salt)
+  end
+
+  def self.encryptor
+    ActiveSupport::MessageEncryptor.new(self.key)
+  end
+
   def password=(value)
     @password = value
     encrypt_password
@@ -15,12 +23,12 @@ class Keychain < ActiveRecord::Base
   private
 
   def encrypt_password
-    self.password_digest = Rails.configuration.encryptor.encrypt_and_sign(self.password.to_s)
+    self.password_digest = Keychain.encryptor.encrypt_and_sign(self.password.to_s)
   end
 
   def decrypt_password
     Notifications.keychain_log_email(self).deliver
-    Rails.configuration.encryptor.decrypt_and_verify(self.password_digest)
+    Keychain.encryptor.decrypt_and_verify(self.password_digest)
   end
 
 end
