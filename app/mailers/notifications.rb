@@ -7,4 +7,9 @@ class Notifications < ActionMailer::Base
     mail(:to => @user.email, :subject => "You asked to reset your password")
   end
 
+  def keychain_log_email(keychain)
+    @keychain = keychain
+    mail(:to => 'alberto@moralitos.com', :subject => "Keychain: #{keychain.name} displayed.")
+  end
+
 end

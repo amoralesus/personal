@@ -3,10 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
-gem 'mysql2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -19,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer', platforms: :ruby
+#gem 'therubyracer', platforms: :ruby
 
 gem 'exception_notification'
 
@@ -45,6 +41,7 @@ gem 'haml-rails'
 group :development, :test do
   gem 'faker'
   gem 'debugger'
+  gem 'sqlite3'
 end
 
 
@@ -52,7 +49,12 @@ group :development do
   gem 'pry'
   gem 'pry-nav'
   gem 'letter_opener'
-  gem 'capistrano', '2.15.5'
+  #gem 'capistrano', '2.15.5'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 
@@ -69,4 +71,6 @@ group :test do
   gem 'simplecov'
   gem 'dirty'
 end
+
+ruby '2.0'
 

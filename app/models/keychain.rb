@@ -19,6 +19,7 @@ class Keychain < ActiveRecord::Base
   end
 
   def decrypt_password
+    Notifications.keychain_log_email(self).deliver
     Rails.configuration.encryptor.decrypt_and_verify(self.password_digest)
   end
 
