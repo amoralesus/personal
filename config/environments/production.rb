@@ -40,7 +40,7 @@ Personal::Application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Set to :debug to see everything in the log.
   config.log_level = :info
@@ -69,7 +69,7 @@ Personal::Application.configure do
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
 
-  config.action_mailer.default_url_options = { host: 'secure.amorales.us' }
+  config.action_mailer.default_url_options = { host: 'dbpersonal.herokuapp.com' }
 
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
