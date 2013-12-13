@@ -7,5 +7,6 @@ Personal::Application.routes.draw do
   resources :password_recoveries, :only => [:new, :create, :edit, :update]
   root "home#index"
 
+  resources :keychains
 
 end

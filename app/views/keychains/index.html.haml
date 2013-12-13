@@ -1,0 +1,12 @@
+%table{:class => 'table table-bordered'}
+  %tr
+    %th
+      Name
+    %th
+      &nbsp;
+  - @keychains.each do |keychain|
+    %tr
+      %td
+        = keychain.name
+      %td
+        &nbsp;
