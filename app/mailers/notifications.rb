@@ -1,5 +1,5 @@
 class Notifications < ActionMailer::Base
-  default from: "alberto@moralitos.com"
+  default from: ENV['admin_email']
 
   def recovery_email(recovery)
     @user = recovery.user
@@ -9,7 +9,7 @@ class Notifications < ActionMailer::Base
 
   def keychain_log_email(keychain)
     @keychain = keychain
-    mail(:to => 'alberto@moralitos.com', :subject => "Keychain: #{keychain.name} displayed.")
+    mail(:to => ENV['admin_email'], :subject => "Keychain: #{keychain.name} displayed.")
   end
 
 end

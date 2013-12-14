@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
 
-User.create!(:email => 'alberto@moralitos.com', :password => 'password', :password_confirmation => 'password', :full_name => "Alberto Morales")
+User.create!(:email => ENV['admin_email'], :password => 'password', :password_confirmation => 'password', :full_name => "Admin Person")

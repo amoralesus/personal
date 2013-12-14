@@ -33,7 +33,7 @@ For this app to run you will need the following environment variables setup.
 * `smtp_user=your_gmail_username_used_to_send_emails_from_app`
 * `smtp_password=your_gmail_password`
 * `smtp_domain=your_gmail_domain_or_smtp.gmail.com`
-* `heroku_app_name=mykeychainapp.heroku.com (used when sending emails)`
+* `heroku_db_personal_app_name=your_app_name.herokuapp.com (used when sending emails)`
 * `admin_eamil=someadmin@gmail.com (used when sending the notification)`
 
 To setup the environment variables in development add them to your `.bash_profile` file

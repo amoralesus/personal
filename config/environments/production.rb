@@ -69,7 +69,7 @@ Personal::Application.configure do
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
 
-  config.action_mailer.default_url_options = { host: 'dbpersonal.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: ENV['heroku_app_name'] }
 
   config.action_mailer.smtp_settings = {
       :address              => "smtp.gmail.com",
@@ -86,8 +86,8 @@ Personal::Application.configure do
   config.middleware.use ExceptionNotification::Rack,
       :email => {
       :email_prefix => "[personal] ",
-      :sender_address => %{"notifier" <smtpsender@moralitos.com>},
-      :exception_recipients => %w{alberto@moralitos.com}
+      :sender_address => %{"notifier" <#{ENV['admin_email']}>},
+      :exception_recipients => [ENV['admin_email']]
     }
 
   # Send deprecation notices to registered listeners.
