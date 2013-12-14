@@ -12,3 +12,15 @@ When(/^fills out a keychain with name "(.*?)", description "(.*?)", :username =>
   fill_in 'keychain_username', :with => username
   fill_in 'keychain_password', :with => password
 end
+
+When(/^submits the new keychain form$/) do
+  click_on 'submit'
+end
+
+Then(/^the user is redirected to the keychains listing page$/) do
+  expect(page.current_path).to eq('/keychains')
+end
+
+Then(/^the user can see a keychain with the name "(.*?)"$/) do |name|
+  expect(page.body).to have_content(name)
+end

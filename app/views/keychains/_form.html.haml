@@ -1,0 +1,16 @@
+= form_for @keychain, :class => 'form' do |f|
+  .form-group
+    %label Name:
+    = f.text_field :name, :class => 'form-control'
+  .form-group
+    %label Description:
+    = f.text_area :description, :class => "form-control"
+  .form-group
+    %label Username:
+    = f.text_area :username, :class => 'form-control'
+  .form-group
+    %label Password:
+    = f.text_field :password, :class => "form-control"
+
+  .form-group
+    = f.submit :submit

@@ -7,6 +7,7 @@
   - @keychains.each do |keychain|
     %tr
       %td
-        = keychain.name
+        = link_to keychain.name, keychain_path(keychain)
       %td
-        &nbsp;
+        = link_to 'Destroy', keychain_path(keychain), :method => :delete, :confirm => "Are you sure?"
+          
