@@ -33,7 +33,7 @@ class KeychainsController < ApplicationController
 
   def update
     @keychain = Keychain.find(params[:id])
-    if @keychain.save
+    if @keychain.update_attributes(keychain_params)
       redirect_to keychain_path(@keychain)
     else
       flash.now[:danger] = "Could not update record. #{@keychain.errors.full_messages.join(', ')}"

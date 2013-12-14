@@ -63,8 +63,14 @@ describe KeychainsController do
 
     describe "PATCH update" do
       it "redirects to the show page after update" do
-        patch :update, :id => Keychain.first.id
+        patch :update, :id => Keychain.first.id, :keychain => {:name => "new name"}
         expect(response).to redirect_to(keychain_path(Keychain.first))
+      end
+
+      it "renders the edit action if data is incomplete" do
+        patch :update, :id => Keychain.first.id, :keychain => {:name => ""}
+        expect(response).to render_template(:edit)
+        expect(flash.now[:danger]).to include("Name can't be blank")
       end
     end
   end

@@ -27,4 +27,10 @@ describe Keychain do
     expect(ActionMailer::Base.deliveries.size).to eq(1)
     expect(ActionMailer::Base.deliveries.first.subject).to eq("Keychain: #{keychain.name} displayed.")
   end
+
+  it "saves with a blank name" do
+    keychain.save
+    keychain.name = ""
+    expect(keychain.save).not_to be_true
+  end
 end
